@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+
+		<script src="resources/sap-ui-core.js"
+				id="sap-ui-bootstrap"
+				data-sap-ui-resourceroots='{"sap.training": "./"}'
+				data-sap-ui-libs="sap.ui.commons"
+				data-sap-ui-theme="sap_bluecrystal">
+		</script>
+		
+		<script>
+		   /*
+			*  1
+			*/
+			var oBtn = new sap.ui.commons.Button({ text: "Hello World" });
+			
+			jQuery.sap.require("sap.m.MessageBox");
+			
+			oBtn.attachPress(function() {
+				sap.m.MessageBox.show("Hello World", {
+					at: "center top"
+				}) ;
+			});
+				
+			oBtn.placeAt("content");
+			
+			
+			
+		   /*
+			*  2
+			*/
+			//jQuery.sap.registerModulePath("sap.training", "./");
+			//sap.ui.localResources("sap.training");
+			
+			jQuery.sap.require("sap.training.util.Formatter");
+			alert(sap.training.util.Formatter.uppercaseFirstChar("hallo Welt"));
+			
+			
+		   /*
+			*  3
+			*/
+			sap.ui.require(["sap/training/modules/MyModule"], function(MyModule) {
+				"use strict";
+				MyModule.showMessage("hello walldorf");
+			});
+			
+		</script>
+	</head>
+	<body class="sapUiBody" role="application">
+		<div id="content"></div>
+	</body>
+</html>
